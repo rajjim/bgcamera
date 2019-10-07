@@ -29,6 +29,7 @@ public class BackgroundVideoRecorder extends Service implements SurfaceHolder.Ca
     private Camera camera = null;
     private MediaRecorder mediaRecorder = null;
 
+
     @Override
     public void onCreate() {
         Notification.Builder builder1 = new Notification.Builder(this);
@@ -41,15 +42,16 @@ public class BackgroundVideoRecorder extends Service implements SurfaceHolder.Ca
         builder1.setAutoCancel(true);//打开程序后图标消失
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,new Intent(this, MainActivity.class), 0);
         builder1.setContentIntent(pendingIntent);
-        Notification notification1 = builder1.build();
-        startForeground(0x1983, notification1);   // notification ID: 0x1982, you can name it as you will.
+//        Notification notification1 = builder1.build();
+//        startForeground(0x19821, notification1);   // notification ID: 0x1982, you can name it as you will.
 
         // Create new SurfaceView, set its size to 1x1, move it to the top left corner and set this service as a callback
         windowManager = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         surfaceView = new SurfaceView(this);
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
                 1, 1,
-                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
+                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+//                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
                 WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
                 PixelFormat.TRANSLUCENT
         );
@@ -58,6 +60,8 @@ public class BackgroundVideoRecorder extends Service implements SurfaceHolder.Ca
         layoutParams.gravity = Gravity.LEFT | Gravity.TOP;
         windowManager.addView(surfaceView, layoutParams);
         surfaceView.getHolder().addCallback(this);
+
+
 
     }
 

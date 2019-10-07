@@ -1,8 +1,11 @@
 package com.louis.functest;
 
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.media.MediaRecorder;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +19,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -40,6 +44,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         frontcamera.setOnClickListener(this);
         backcamera.setOnClickListener(this);
         stop.setOnClickListener(this);
+//        if (Build.VERSION.SDK_INT >= 23) {
+//            if (!Settings.canDrawOverlays(this)) {
+//                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivityForResult(intent, 1);
+//            } else {
+//                //TODO do something you need
+//            }
+//        }
+
 
     }
 
@@ -195,9 +209,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case PermissionUtils.CODE_WRITE_EXTERNAL_STORAGE:
 //                    Toast.makeText(PermissionActivity.this, "Result Permission Grant CODE_WRITE_EXTERNAL_STORAGE", Toast.LENGTH_SHORT).show();
                     break;
-//                case PermissionUtils.CODE_SYSTEM_ALERT_WINDOW:
+                case PermissionUtils.CODE_SYSTEM_ALERT_WINDOW:
 //                    Toast.makeText(PermissionActivity.this, "Result Permission Grant CODE_WRITE_EXTERNAL_STORAGE", Toast.LENGTH_SHORT).show();
-//                    break;
+                    break;
                 default:
                     break;
             }
@@ -212,10 +226,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                            @NonNull int[] grantResults) {
         PermissionUtils.requestPermissionsResult(this, requestCode, permissions, grantResults, mPermissionGrant);
     }
-
-
-
-
 
 
 

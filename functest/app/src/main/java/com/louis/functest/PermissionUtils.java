@@ -45,7 +45,7 @@ public class PermissionUtils {
 //    public static final String PERMISSION_ACCESS_COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     public static final String PERMISSION_READ_EXTERNAL_STORAGE = Manifest.permission.READ_EXTERNAL_STORAGE;
     public static final String PERMISSION_WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
-//    public static final String PERMISSION_SYSTEM_ALERT_WINDOW = Manifest.permission.SYSTEM_ALERT_WINDOW;
+    public static final String PERMISSION_SYSTEM_ALERT_WINDOW = Manifest.permission.SYSTEM_ALERT_WINDOW;
 
     private static final String[] requestPermissions = {
             PERMISSION_RECORD_AUDIO,
@@ -56,8 +56,8 @@ public class PermissionUtils {
 //            PERMISSION_ACCESS_FINE_LOCATION,
 //            PERMISSION_ACCESS_COARSE_LOCATION,
             PERMISSION_READ_EXTERNAL_STORAGE,
-            PERMISSION_WRITE_EXTERNAL_STORAGE
-//            PERMISSION_SYSTEM_ALERT_WINDOW
+            PERMISSION_WRITE_EXTERNAL_STORAGE,
+            PERMISSION_SYSTEM_ALERT_WINDOW
 
     };
 
